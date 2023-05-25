@@ -1,0 +1,39 @@
+{
+  "name": "muscobytes/laravel-cdek-webhook",
+  "description": "Create endpoint in your Laravel application for CDEK with zero effort.",
+  "keywords" : [
+    "muscobytes",
+    "laravel",
+    "sdek",
+    "cdek",
+    "webhook"
+  ],
+  "homepage" : "https://github.com/muscobytes/laravel-cdek-webhook",
+  "license" : "MIT",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Muscobytes\\CdekWebhook\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Muscobytes\\CdekWebhook\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Muscobytes\\CdekWebhook\\Providers\\CdekWebhookServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.5"
+  },
+  "require": {
+    "spatie/laravel-data": "^3",
+    "spatie/laravel-enum": "^3.0"
+  }
+}
