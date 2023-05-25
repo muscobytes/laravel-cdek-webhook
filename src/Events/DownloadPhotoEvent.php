@@ -20,4 +20,9 @@ class DownloadPhotoEvent
     {
         //
     }
+
+    public function getMessage(): DownloadPhotoMessage
+    {
+        return $this->message;
+    }
 }

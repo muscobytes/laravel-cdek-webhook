@@ -20,7 +20,7 @@ class CdekWebhookServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../../config/cdek.php' => config_path('cdek.php'),
-            ]);
+            ], 'config');
         }
 
         $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');

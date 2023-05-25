@@ -20,4 +20,9 @@ class PrealertClosedEvent
     {
         //
     }
+
+    public function getMessage(): PrealertClosedMessage
+    {
+        return $this->message;
+    }
 }
