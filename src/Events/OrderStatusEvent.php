@@ -20,4 +20,9 @@ class OrderStatusEvent
     {
         //
     }
+
+    public function getMessage(): OrderStatusMessage
+    {
+        return $this->message;
+    }
 }

@@ -20,4 +20,9 @@ class PrintFormEvent
     {
         //
     }
+
+    public function getMessage(): PrintFormMessage
+    {
+        return $this->message;
+    }
 }
