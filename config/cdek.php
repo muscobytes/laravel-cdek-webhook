@@ -1,4 +1,4 @@
 <?php
 return [
-    'webhook_url' => '/api/cdek/webhook'
+    'webhook_url' => env('CDEK_WEBHOOK_URL', '/api/cdek/webhook')
 ];
