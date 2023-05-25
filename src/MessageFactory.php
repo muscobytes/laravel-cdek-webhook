@@ -41,7 +41,7 @@ class MessageFactory
         Log::debug('Request body', [ $content ]);
 
         $body = json_decode($content, true);
-        Log::debug('Decoded request body', [ $content ]);
+        Log::debug('Decoded request body', [ $body ]);
 
         if (!is_array($body)) {
             throw new MessageFactoryException('Request body contents must be a JSON structure', 400);
