@@ -3,6 +3,7 @@
 namespace Muscobytes\CdekWebhook;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Muscobytes\CdekWebhook\Exceptions\MessageFactoryException;
 use Muscobytes\CdekWebhook\Messages\DownloadPhotoMessage;
 use Muscobytes\CdekWebhook\Messages\OrderStatusMessage;
@@ -36,7 +37,11 @@ class MessageFactory
      */
     public static function fromRequest(Request $request): array
     {
-        $body = json_decode($request->getContent(), true);
+        $content = $request->getContent();
+        Log::debug('Request body', [ $content ]);
+
+        $body = json_decode($content, true);
+        Log::debug('Decoded request body', [ $content ]);
 
         if (!is_array($body)) {
             throw new MessageFactoryException('Request body contents must be a JSON structure', 400);
