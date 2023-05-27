@@ -80,3 +80,18 @@ class DownloadPhotoEventListener
 - для `PrintFormEvent` это [Muscobytes\CdekWebhook\Messages\PrintFormMessage](src/Messages/PrintFormMessage.php)
 
 Набор свойств DTO соответствует набору полей, описанных в [документации СДЭК](https://api-docs.cdek.ru/29924139.html).
+
+Для того чтобы зарегистрировать обработчик события, необходимо добавить в массив `$listen` класс события и присвоить ему класс обработчика события в файле `app/Providers/EventServiceProvider.php`:
+
+```php
+class EventServiceProvider extends ServiceProvider
+{
+    protected $listen = [
+        Registered::class => [
+            SendEmailVerificationNotification::class,
+        ],
+        OrderStatusEvent::class => [
+            OrderStatusEventListener::class
+        ]
+    ];
+```

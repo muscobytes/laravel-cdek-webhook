@@ -65,6 +65,7 @@ class CodeTest extends TestCase
             ['ACCEPTED_AT_PICK_UP_POINT'],
             ['TAKEN_BY_COURIER'],
             ['RETURNED_TO_RECIPIENT_CITY_WAREHOUSE'],
+            ['ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE'],
         ];
     }
 

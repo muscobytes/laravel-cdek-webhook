@@ -48,6 +48,7 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self ACCEPTED_AT_PICK_UP_POINT()
  * @method static self TAKEN_BY_COURIER()
  * @method static self RETURNED_TO_RECIPIENT_CITY_WAREHOUSE()
+ * @method static self ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE()
  */
 final class Code extends Enum
 {

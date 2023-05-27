@@ -9,6 +9,7 @@ use Muscobytes\CdekWebhook\Messages\DownloadPhotoMessage;
 use Muscobytes\CdekWebhook\Messages\OrderStatusMessage;
 use Muscobytes\CdekWebhook\Messages\PrealertClosedMessage;
 use Muscobytes\CdekWebhook\Messages\PrintFormMessage;
+use \Exception;
 use Spatie\LaravelData\Data;
 
 class MessageFactory
@@ -28,7 +29,11 @@ class MessageFactory
     {
         $data = self::fromRequest($request);
         $class_name = self::$events[$data['type']];
-        return $class_name::validateAndCreate($data);
+        try {
+            return $class_name::validateAndCreate($data);
+        } catch (Exception $e) {
+            throw new MessageFactoryException('Message type error', 400, $e);
+        }
     }
 
 
@@ -41,7 +46,7 @@ class MessageFactory
         Log::debug('Request body', [ $content ]);
 
         $body = json_decode($content, true);
-        Log::debug('Decoded request body', [ $content ]);
+        Log::debug('Decoded request body', [ $body ]);
 
         if (!is_array($body)) {
             throw new MessageFactoryException('Request body contents must be a JSON structure', 400);
