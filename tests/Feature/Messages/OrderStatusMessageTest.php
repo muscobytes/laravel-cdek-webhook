@@ -28,6 +28,8 @@ class OrderStatusMessageTest extends TestCase
                     'uuid'          => '72753031-2801-4186-a091-0be58cedfee7',
                     'attributes'    => [
                         'is_return'         => false,
+                        'is_reverse'        => false,
+                        'is_client_return'  => false,
                         'cdek_number'       => '1106321645',
                         'code'              => 'RECEIVED_AT_SHIPMENT_WAREHOUSE',
                         'status_code'       => '3',
