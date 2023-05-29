@@ -46,7 +46,7 @@ class WebhookMiddleware
     {
         try {
             $message = MessageFactory::create($request);
-            Log::debug('Event message', [ $message ]);
+            Log::debug('Event message', [ 'message' => $message ]);
             $request->merge([
                 'cdek_event_type' => $message->type
             ]);
