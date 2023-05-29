@@ -66,6 +66,12 @@ class CodeTest extends TestCase
             ['TAKEN_BY_COURIER'],
             ['RETURNED_TO_RECIPIENT_CITY_WAREHOUSE'],
             ['ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE'],
+            ['READY_FOR_SHIPMENT_IN_TRANSIT_CITY'],
+            ['ACCEPTED'],
+            ['RETURNED_TO_SENDER_CITY_WAREHOUSE'],
+            ['SENT_TO_SENDER_CITY'],
+            ['ACCEPTED_IN_SENDER_CITY'],
+            ['INVALID'],
         ];
     }
 
