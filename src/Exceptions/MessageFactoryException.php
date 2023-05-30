@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Log;
 class MessageFactoryException extends Exception
 {
     public function __construct(
-        protected  $message,
-        protected $code = 0,
-        protected ?Exception $previous = null
+        string $message,
+        int $code = 0,
+        ?Exception $previous = null
     ) {
         Log::error($message, [
             'code' => $code,
