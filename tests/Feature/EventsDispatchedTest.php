@@ -12,6 +12,7 @@ use Muscobytes\CdekWebhook\Messages\PrealertClosedMessage;
 use Muscobytes\CdekWebhook\Messages\PrintFormMessage;
 use Muscobytes\CdekWebhook\Tests\TestCase;
 use Illuminate\Support\Facades\Event;
+use Spatie\LaravelData\Data;
 
 class EventsDispatchedTest extends TestCase
 {
@@ -19,11 +20,14 @@ class EventsDispatchedTest extends TestCase
      * @test
      * @dataProvider events_data_provider
      */
-    public function test_is_event_dispatched($eventClass, $messageClass, array $payload): void
+    public function test_is_event_dispatched(string $eventClass, string $messageClass, array $payload): void
     {
         Event::fake();
         $response = $this->postJson( route('cdek.webhook'), $payload );
         $response->assertStatus(200);
+        $response->assertContent(json_encode([
+            'result'    => 'true'
+        ]));
         Event::assertDispatched($eventClass, function ($event) use ($payload, $messageClass) {
             $this->assertObjectHasProperty('type', $event->message);
             $this->assertEquals($payload['type'], $event->message->type);
