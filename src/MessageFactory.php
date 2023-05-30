@@ -42,11 +42,7 @@ class MessageFactory
      */
     public static function fromRequest(Request $request): array
     {
-        $content = $request->getContent();
-        Log::debug('Request body', [ 'content' => $content ]);
-
-        $body = json_decode($content, true);
-        Log::debug('Decoded request body', [ 'body' => $body ]);
+        $body = json_decode($request->getContent(), true);
 
         if (!is_array($body)) {
             throw new MessageFactoryException('Request body contents must be a JSON structure', 400);
