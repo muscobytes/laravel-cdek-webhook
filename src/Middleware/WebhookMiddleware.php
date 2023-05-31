@@ -29,13 +29,6 @@ class WebhookMiddleware
     ];
 
 
-    public function __construct(
-    )
-    {
-        //
-    }
-
-
     /**
      * @throws CdekWebhookException
      */
@@ -49,12 +42,10 @@ class WebhookMiddleware
             $request->merge([
                 'cdek_event_type' => $message->type
             ]);
+            $this->dispatchEvent($message);
         } catch (MessageFactoryException $e) {
             throw new CdekWebhookException('Message type error', 400, $e);
         }
-
-        $this->dispatchEvent($message);
-
         return $next($request);
     }
 

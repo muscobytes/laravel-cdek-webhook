@@ -27,7 +27,7 @@ class TypeTest extends TestCase
     public function test_illegal_event_type_caused_exception(string $value)
     {
         $this->expectException(BadMethodCallException::class);
-        $state = Type::from($value);
+        Type::from($value);
     }
 
 

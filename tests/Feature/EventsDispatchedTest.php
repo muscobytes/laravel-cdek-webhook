@@ -114,7 +114,7 @@ class EventsDispatchedTest extends TestCase
             'attributes'    => []
         ];
         $this->expectException(CdekWebhookException::class);
-        $response = $this->postJson( route('cdek.webhook'), $payload );
+        $response = $this->postJson(route('cdek.webhook'), $payload);
         $response->assertStatus(200);
         $response->assertContent(json_encode([
             'result'    => 'true'
